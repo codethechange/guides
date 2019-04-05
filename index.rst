@@ -13,7 +13,7 @@ Welcome to Stanford Code the Change Guides's documentation!
    Android Testing <guide_android_testing>
    Unit Testing in Python Flask <guide_flask_unit_testing>
    An Introduction to Git <guide_git>
-
+   Storing Passwords <guide_passwords>
 
 
 Indices and tables
