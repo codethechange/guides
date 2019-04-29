@@ -20,7 +20,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'Stanford Code the Change Guides'
-copyright = '2018, Stanford Code the Change'
+copyright = '2018 - 2019, Stanford Code the Change unless otherwise noted.'
 author = 'Stanford Code the Change'
 
 # The short X.Y version
@@ -77,6 +77,18 @@ pygments_style = 'sphinx'
 # a list of builtin themes.
 #
 html_theme = "sphinx_rtd_theme"
+
+# Path to Logo File
+html_logo = "./_static/ctcLogo.png"
+
+# Path to Icon File
+html_favicon = "./_static/favicon.ico"
+
+
+# Load Custom CSS
+def setup(app):
+    app.add_stylesheet('css/custom.css')
+
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
