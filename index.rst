@@ -3,8 +3,8 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Stanford Code the Change Guides's documentation!
-===========================================================
+Welcome to Stanford Code the Change's Guides!
+=============================================
 
 .. toctree::
    :maxdepth: 2
@@ -14,6 +14,7 @@ Welcome to Stanford Code the Change Guides's documentation!
    Unit Testing in Python Flask <guide_flask_unit_testing>
    An Introduction to Git <guide_git>
    Storing Passwords <guide_passwords>
+   Managing Slack Notifications <guide_slack>
 
 
 Indices and tables
