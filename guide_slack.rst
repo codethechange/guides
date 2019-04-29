@@ -114,9 +114,9 @@ Much of this guide came from the Slack
 `help page <https://get.slack.help/hc/en-us/articles/201355156-Guide-to-Slack-notifications>`_
 on notifications. Check it out for more details!
 
-=========================
+-------------------------
 Licensing and Attribution
-=========================
+-------------------------
 
 Copyright (c) U8N WXD (https://github.com/U8NWXD) <cs.temporary@icloud.com>
 
