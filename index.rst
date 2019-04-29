@@ -16,6 +16,14 @@ Welcome to Stanford Code the Change's Guides!
    Storing Passwords <guide_passwords>
    Managing Slack Notifications <guide_slack>
 
+License and Attribution
+-----------------------
+
+These guides were created by the amazing members of 
+`Stanford Code the Change <http://codethechange.stanford.edu>`_. The authors of
+each guide hold its copyright, and any licensing terms are specified in
+the guides themselves.
+
 
 Indices and tables
 ==================
