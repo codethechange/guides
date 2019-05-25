@@ -8,13 +8,19 @@ Welcome to Stanford Code the Change's Guides!
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: Technical Guides
 
    Android Testing <guide_android_testing>
    Unit Testing in Python Flask <guide_flask_unit_testing>
    An Introduction to Git <guide_git>
    Storing Passwords <guide_passwords>
    Managing Slack Notifications <guide_slack>
+   
+.. toctree::
+   :maxdepth: 2
+   :caption: Leadership Guides
+
+   Leading Individual Feedback Sessions <guide_feedback_session>
 
 License and Attribution
 -----------------------
