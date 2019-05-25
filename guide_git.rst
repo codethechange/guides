@@ -610,6 +610,7 @@ commit your changes, and push them). To get the commits from the remote branch. 
 What if you want to checkout a branch on the remote repo that does not yet exist locally? Use ``git fetch``:
 
 .. code-block:: console
+
     $ git fetch
     remote: Enumerating objects: 5, done.
     remote: Counting objects: 100% (5/5), done.
