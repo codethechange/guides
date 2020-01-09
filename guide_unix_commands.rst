@@ -729,7 +729,7 @@ turns out that with the ``-r`` flag to search files recursively and the
 
 .. code-block:: console
 
-    $ grep -ri <the unusual word>
+    $ grep -ri <the unusual word> .
 
 In the results, you should see a bunch of results from
 ``zhang2019.txt``. Go ahead and take a look at this file:
