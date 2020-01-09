@@ -15,6 +15,7 @@ Welcome to Stanford Code the Change's Guides!
    An Introduction to Git <guide_git>
    Storing Passwords <guide_passwords>
    Managing Slack Notifications <guide_slack>
+   Unix Commands <guide_unix_commands>
    
 .. toctree::
    :maxdepth: 2
