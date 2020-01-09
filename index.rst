@@ -22,6 +22,7 @@ Welcome to Stanford Code the Change's Guides!
    :caption: Leadership Guides
 
    Leading Individual Feedback Sessions <guide_feedback_session>
+   Leading Teams <leadership>
 
 License and Attribution
 -----------------------
