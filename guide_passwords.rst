@@ -79,7 +79,8 @@ Write this code in ``hash-salt-passwords.py``:
     for i in range(len(d['users'])):
         salt = ''.join([choice(chars) for _ in range(8)])
         m = sha256()
-        m.update(salt + '||' + d['passwords'][i])
+        to_hash = salt + '||' + d['passwords'][i]
+        m.update(to_hash)
         d['passwords'][i] = salt + '$' + m.hexdigest()
     with open('salted-passwords.json', 'w') as f:
         json.dump(d,f)
