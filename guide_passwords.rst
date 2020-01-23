@@ -63,7 +63,7 @@ How could we prevent this lookup table?
 Well, we have to essentially require a unique lookup table for each password.
 We can produce a unique, random salt for each username-password pair.
 
-Write this code in ``hash-salt-passwords.txt``:
+Write this code in ``hash-salt-passwords.py``:
 
 .. code-block:: python
 
