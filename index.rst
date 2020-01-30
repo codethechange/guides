@@ -16,6 +16,7 @@ Welcome to Stanford Code the Change's Guides!
    Storing Passwords <guide_passwords>
    Managing Slack Notifications <guide_slack>
    Unix Commands <guide_unix_commands>
+   Introduction to Database and Structured Query Language <sql>
    
 .. toctree::
    :maxdepth: 2
