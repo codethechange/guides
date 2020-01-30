@@ -202,7 +202,7 @@ is blank or NaN. Note that ``NULL != 0`` or ``NULL != (empty string)``.
 Syntax of SQL
 ******************************
 
-** CREATE statement **
+**CREATE statement**
 
 ``CREATE`` allows us to create a new table in the database.
 
@@ -217,7 +217,7 @@ Syntax of SQL
     );
 
 
-** SELECT statement **
+**SELECT statement**
 
 ``SELECT`` allows us to fetch data from a database. You can either select
 column(s) from a particular table, or can select all columns from a table.
@@ -228,7 +228,7 @@ column(s) from a particular table, or can select all columns from a table.
     SELECT * FROM professors;
 
 
-** INSERT statement **
+**INSERT statement**
 
 ``INSERT`` allows us to insert a new **row** into a table.
 
@@ -237,7 +237,7 @@ column(s) from a particular table, or can select all columns from a table.
     INSERT INTO PROFESSORS (id, name, age, department, fav_num) VALUES (3, MTL, 61, Dean, 100);
 
 
-** ALTER statement **
+**ALTER statement**
 
 ``ALTER`` allows us to add a new column to a table.
 
@@ -246,7 +246,7 @@ column(s) from a particular table, or can select all columns from a table.
     ALTER TABLE PROFESSORS ADD COLUMN fav_book TEXT;
 
 
-** UPDATE statement **
+**UPDATE statement**
 
 ``UPDATE`` allows us to edit/change a row in a table.
 
@@ -255,7 +255,7 @@ column(s) from a particular table, or can select all columns from a table.
     UPDATE PROFESSORS SET fav_book = 'C++ Programming Language Guide' WHERE name = 'Keith';
 
 
-** DELETE statement **
+**DELETE statement**
 
 ``DELETE`` (or more specifically, ``DELETE FROM``) allows us to delete
 one or more rows from a table.
@@ -266,7 +266,7 @@ one or more rows from a table.
 
 
 
-** WHERE keyword **
+**WHERE keyword**
 
 ``WHERE`` allows us to restrict our query results to a certain condition
 
@@ -278,7 +278,7 @@ The common comparison operators (=, !=, >, <, >=, <=) are used in SQL.
 
 
 
-** AND/OR keywords **
+**AND/OR keywords**
 
 ``AND`` operator allows us to combine multiple conditions where both conditions
 must be met, used in tandem with ``WHERE` keywords.
@@ -297,7 +297,7 @@ the conditions must be met, used in tandem with ``WHERE`` keywords.
 
 
 
-** ORDER BY keyword **
+**ORDER BY keyword**
 
 ``ORDER BY`` allows us to sort the results, either alphabetically or numerically.
 
@@ -308,7 +308,7 @@ the conditions must be met, used in tandem with ``WHERE`` keywords.
 
 
 
-** LIMIT keyword **
+**LIMIT keyword**
 
 ``LIMIT`` allows us to specify the maximum number of rows the result will have.
 
@@ -319,7 +319,7 @@ the conditions must be met, used in tandem with ``WHERE`` keywords.
 
 
 
-** COUNT function **
+**COUNT function**
 
 ``COUNT()`` function allows us to count the number of **non-empty** values in
 a column. The input is the name of a column.
@@ -331,7 +331,7 @@ a column. The input is the name of a column.
 
 
 
-** SUM function **
+**SUM function**
 
 ``SUM()`` function allows us to return the sum of all the values in the
 specified column.
@@ -343,7 +343,7 @@ specified column.
 
 
 
-** MAX/MIN functions **
+**MAX/MIN functions**
 
 ``MAX()`` function allows us to return the largest value in the specified column,
 and ``MIN()`` the smallest value.
@@ -355,7 +355,7 @@ and ``MIN()`` the smallest value.
 
 
 
-** AVG functions **
+**AVG functions**
 
 ``AVERAGE()`` function allows us to return the average of the values in a specified
 column.
@@ -367,7 +367,7 @@ column.
 
 
 
-** GROUP BY statement **
+**GROUP BY statement**
 
 ``GROUP BY`` statement allows us to arrange identical data into **groups**,
 used in tandem with ``SELECT``.
@@ -384,7 +384,7 @@ used in tandem with ``SELECT``.
 
 
 
-** DISTINCT keyword **
+**DISTINCT keyword**
 
 ``DISTINCT`` keyword allows us to filter duplicate values and return rows
 of specified column. 
@@ -397,7 +397,7 @@ of specified column.
 
 
 
-** INNER JOIN keyword **
+**INNER JOIN keyword**
 
 ``INNER JOIN`` allows us to select records that have matching value in **two
 or more** tables. Assume that there is another table called ``CSFACULTY`` that
