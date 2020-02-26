@@ -17,6 +17,7 @@ Welcome to Stanford Code the Change's Guides!
    Managing Slack Notifications <guide_slack>
    Unix Commands <guide_unix_commands>
    Introduction to Database and Structured Query Language <sql>
+   Zero Knowledge Proofs <guide_zk>
    
 .. toctree::
    :maxdepth: 2
