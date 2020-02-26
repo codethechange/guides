@@ -1,3 +1,7 @@
+******************************************************
+Zero Knowledge What? An Introduction to Zero Knowledge
+******************************************************
+
 ========================================
 An Introduction to Zero Knowledge Proofs
 ========================================
@@ -79,8 +83,8 @@ Let's ground this idea with some examples:
 ------------------
 A Cool Application
 ------------------
-Let's perform the ultimate test of who are your real friends:
-who knows your birthday?
+Let's see which of your friends know you super well:
+Who knows your birthday?
 
 Now, imagine that you were with a group of friends who can all listen in.
 Some of your friends claim that they know the answer.
