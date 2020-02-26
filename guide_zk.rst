@@ -309,8 +309,6 @@ Here would be our extractor algorithm:
 Here, the algorithm fails if :math:`c_1-c_2=0` which happens with probability :math:`\frac{1}{p}`.
 As a result, the knowledge error is :math:`\frac{1}{p}` for provers that always convince the verifier.
 
-In this way, a verifier
-
 
 -------------------------------------------------------
 Proving that Schnorr's Sigma Protocol is Zero Knowledge
