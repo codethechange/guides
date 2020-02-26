@@ -41,8 +41,8 @@ Here are some example statements a prover may try to prove to the verifier:
 
 .. note:: This fourth problem is a different form than the previous three. In fact,
     it is a *search problem* ("what is the answer") as opposed to a decision problem
-    ("is this true or false"). As such, a proof of the answer is called a "proof of knowledge".
-    This problem doesn't have as strong security guarantees as the previous three but is also assumed to
+    ("is this true or false").
+    This problem doesn't have as strong computational hardness as the previous three but is also assumed to
     be hard for classical (non-quantum) computers.
     If you have a way to solve this problem efficiently for elliptic curve groups with classical computers,
     contact your nearest `cryptographer <https://en.wikipedia.org/wiki/Discrete_logarithm#Cryptography>`_ immediately.
@@ -70,6 +70,10 @@ Let's ground this idea with some examples:
   about who previously owned that token <https://z.cash/>`_.
 - Prove that you know the discrete logarithm of :math:`g^x` without giving away
   anything about :math:`x`.
+
+.. note:: Similarly to our decision versus search problem discussion, the first three proofs
+    are proofs of the truth of a statement. The last proof isn't about whether a statement is true
+    but instead is defined as a "zero-knowledge proof of knowledge."
 
 
 ==================
@@ -256,17 +260,49 @@ Completeness and soundness properties are what define
 an interactive proof system, so I will briefly explain
 the analysis for Schnorr's protocol. Note that if :math:`P`
 is honest, then :math:`g^z=g^{r+cx}=g^rg^{cx}=u(g^x)^c=u*h^c`,
-satisfying completness.
+satisfying completness. This part is not vital fo the idea of zero-knowledge,
+so you can skip this section.
 
-Soundness is somewhat trickier. At a high level, one would
-use an adversary that would break soundness for Schnorr's
-Protocol to create adversary that would break some widely
-held security assumption, such as the 
+Soundness is somewhat trickier. In fact, our ZK formalisms don't quite apply
+here, as those definitions were for decision problems, not search problems.
+Instead, we could say that soundness means
+"a poly-time adversary without :math:`x` should only be able to produce
+:math:`z` where :math:`g^z=u*h^c` with negligible probability." We could prove
+this definition of soundness by using an adversary that would
+break soundness for Schnorr's
+Protocol to create an adversary that would break some widely
+held security assumption, such as the
 `Decisional Diffie Hellman <https://en.wikipedia.org/wiki/Decisional_Diffie%E2%80%93Hellman_assumption>`_ assumption
 or discrete log assumption.
 This proof format is a `security reduction <https://en.wikipedia.org/wiki/Provable_security>`_and is widely
 used in cryptgraphy.
 
+Similarly, one could define a variant of soundness for Proof of Knowledge systems.
+Namely, the scheme should satisfy a proof of knowledge requirement. Formally, this means
+that an efficient algorithm :math:`E` called the "extractor" can, 
+with black box access to :math:`P`, determine the hidden value. In our setting:
+
+:math:`\forall x,h, P^* Pr[g^x=h : x \leftarrow E^{P^*}(h)] \geq Pr[(P,V)(h)=1]-\epsilon`
+where :math:`\epsilon` is considered the *knowledge error*.
+
+Here would be our extractor algorithm:
+
++-----------------------------------------------------------------------------------------------+
+| Run :math:`P^*` to determmine :math:`u`.                                                      |
++-----------------------------------------------------------------------------------------------+
+| Send :math:`c_1 \rightarrow^R \mathbb{Z_p}` to :math:`P^*` and get response :math:`z_1`       |
++-----------------------------------------------------------------------------------------------+
+| Rewind the prover :math:`P^*` to its state after the first message.                           |
++-----------------------------------------------------------------------------------------------+
+| Send :math:`c_2 \rightarrow^R \mathbb{Z_p}` to :math:`P^*` and get response :math:`z_2`       |
++-----------------------------------------------------------------------------------------------+
+| Output :math:`\frac{z_1-z_2}{c_1-c_2}\in \mathbb{Z}_p`                                        |
++-----------------------------------------------------------------------------------------------+
+
+Here, the algorithm fails if :math:`c_1-c_2=0` which happens with probability :math:`\frac{1}{p}`.
+As a result, the knowledge error is :math:`\frac{1}{p}` for provers that always convince the verifier.
+
+In this way, a verifier
 
 
 =======================================================
@@ -309,9 +345,9 @@ satisfies the constraints :math:`g^z=u*h^c`.
 Licensing and Attribution
 =========================
 
-Many of these materials are heavily inspired by the 2019 CS355 
-course: https//cs355.stanford.edu/, particularly for the details
-of Schnorr's Protocol. 
+This tutorial is heavily inspired by the 2019 CS355 
+course and lecture notes: https://crypto.stanford.edu/cs355/19sp/about/,
+particularly for the details of Schnorr's Protocol and Proof of Knowledge systems. 
 Special thanks to `Floran Tramèr <https://floriantramer.com/>`_,
 `Dima Kogan <https://www.cs.stanford.edu/~dkogan/>`_, and `Henry Corrigan-Gibbs <https://people.csail.mit.edu/henrycg/>`_
 for being such fantastic instructors.
