@@ -13,9 +13,9 @@ Why? One could argue that this father might not be learning much about his
 son's day. Indeed, this idea captures a fundamentally important idea in
 complexity theory and cryptography: zero-knowledge proofs.
 
-=============
+-------------
 Proof Systems
-=============
+-------------
 
 First, let's define how proofs work in computer science. We will define two
 parties: a *prover* :math:`P` and a *verifier* :math:`V`. :math:`P` and
@@ -51,9 +51,9 @@ Here are some example statements a prover may try to prove to the verifier:
 .. note:: For budding complexity theorists, this definition of a proof system
     loosely encapulates the complexity class `IP <https://en.wikipedia.org/wiki/IP_(complexity)>`_.
 
-=========================
+-------------------------
 Definining Zero Knowledge
-=========================
+-------------------------
 In what sense can a proof system be zero knowledge?
 At first glance, proving information without giving away information sounds
 like a paradox. Let's say in English that a zero knowledge proof should prove
@@ -76,9 +76,9 @@ Let's ground this idea with some examples:
     but instead is defined as a "zero-knowledge proof of knowledge."
 
 
-==================
+------------------
 A Cool Application
-==================
+------------------
 Let's perform the ultimate test of who are your real friends:
 who knows your birthday?
 
@@ -93,9 +93,9 @@ your birthday that they know your birthday without giving away your birthday.
 
 The crazy thing: this can be done!
 
-========================
+------------------------
 Schnorr's Sigma Protocol
-========================
+------------------------
 First, let's encode your birthday as an integer: MMDDYYYY.
 For example, if you birthday is Jan 10, 1938, then your encoding would be
 01101938.
@@ -147,9 +147,9 @@ Here is the protocol:
 +--------------------------------------+-----------------------+-------------------------------------+  
 
 
-==========================================
+------------------------------------------
 How to Try It Using the Python Interpreter
-==========================================
+------------------------------------------
 **Note: This tutorial is an instructive toy example. This code should not be used for any real application.**
 **For example, this code does not protect against side channel attacks and stores private values in terminal memory.**
 
@@ -216,9 +216,9 @@ Finally, V should perform this final check:
 
 
 
-=========================
+-------------------------
 Zero Knowledge Formalisms
-=========================
+-------------------------
 
 This is a more formal treatment of a zero knowledge proof.
 Feel free to skip this section.
@@ -252,9 +252,9 @@ There are many variants of this definition of zero knowledge:
     - *Computational ZK* requires that all polynomially bounded algorithms should be
         unable to distinguish the transcript/view distributions (relying on some security assumptions).
 
-=========================================
-An Aside About Completeness and Soundness
-=========================================
+----------------------------------------------------------------
+An Aside About Completeness and Soundness for Schnorr's Protocol
+----------------------------------------------------------------
 
 Completeness and soundness properties are what define
 an interactive proof system, so I will briefly explain
@@ -305,9 +305,9 @@ As a result, the knowledge error is :math:`\frac{1}{p}` for provers that always 
 In this way, a verifier
 
 
-=======================================================
+-------------------------------------------------------
 Proving that Schnorr's Sigma Protocol is Zero Knowledge
-=======================================================
+-------------------------------------------------------
 Our goal is to construct an efficient algorithm that
 will produce a distribution identical to a verifier's
 view of the protocol. We will only prove HVZK: the
@@ -341,9 +341,9 @@ such that :math:`(u,c,z)`
 satisfies the constraints :math:`g^z=u*h^c`.
 
 
-=========================
+-------------------------
 Licensing and Attribution
-=========================
+-------------------------
 
 This tutorial is heavily inspired by the 2019 CS355 
 course and lecture notes: https://crypto.stanford.edu/cs355/19sp/about/,
