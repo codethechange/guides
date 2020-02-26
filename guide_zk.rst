@@ -244,16 +244,19 @@ if it satisfies the following properties :math:`\forall x`:
 
 There are many variants of this definition of zero knowledge:
 
-    - *Honest-Verifier ZK* only requires the simulator to produce identical
+    - *Honest-Verifier ZK* 
+        only requires the simulator to produce identical
         distributions for the honest verifier :math:`V` for the protocol.
         In other words, the verifier is expected to behave honestly,
         but malicious verifiers may be able to learn information by
         deviating from the protocol.
-    - *Statistical ZK* relaxes the requirement that the transcript/view distributions are
+    - *Statistical ZK* 
+        relaxes the requirement that the transcript/view distributions are
         identical and instead makes the similarity function allow for some
         negligible difference (as a function of some security parameter)
         in probability for any given state in the distribution.
-    - *Computational ZK* requires that all polynomially bounded algorithms should be
+    - *Computational ZK* 
+        requires that all polynomially bounded algorithms should be
         unable to distinguish the transcript/view distributions (relying on some security assumptions).
 
 ----------------------------------------------------------------
@@ -278,7 +281,7 @@ Protocol to create an adversary that would break some widely
 held security assumption, such as the
 `Decisional Diffie Hellman <https://en.wikipedia.org/wiki/Decisional_Diffie%E2%80%93Hellman_assumption>`_ assumption
 or discrete log assumption.
-This proof format is a `security reduction <https://en.wikipedia.org/wiki/Provable_security>`_and is widely
+This proof format is a `security reduction <https://en.wikipedia.org/wiki/Provable_security>`_ and is widely
 used in cryptgraphy.
 
 Similarly, one could define a variant of soundness for Proof of Knowledge systems.
