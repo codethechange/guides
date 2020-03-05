@@ -194,7 +194,7 @@ on their computer.
     >>> from random import SystemRandom
     >>> gen = SystemRandom()
     >>> g = 5 # public parameter
-    >>> p = 2000302 # public parameter
+    >>> p = 2000000579 # public parameter
     >>> u = 1706406692 # From prover, let's keep this for later
     >>> c = gen.randrange(p)
     >>> print(c) # send to P
@@ -257,7 +257,8 @@ There are many variants of this definition of zero knowledge:
         in probability for any given state in the distribution.
     - *Computational ZK* 
         requires that all polynomially bounded algorithms should be
-        unable to distinguish the transcript/view distributions (relying on some security assumptions).
+        unable to distinguish the transcript/view distributions
+        (relying on some security assumptions).
 
 ----------------------------------------------------------------
 An Aside About Completeness and Soundness for Schnorr's Protocol
@@ -339,7 +340,7 @@ logarithms. We only satisfy honest-verifier ZK because we implicitly assume
 that the verifier will generate :math:`c` with uniform randomness.
 Next, note that we arrive at strong zero-knowledge because
 the transcript/view distributions are identical:
-:math:`\forall g,h \in L: \{Sim(y)\} = \{(u,c,z): c,z \leftarrow^R \mathbb{Z}_p, u=\frac{g^z}{h^c} \} = \{(g^r,c,z) : r,c \mathbb{Z}_p, z=r+cx \} = \{View_{V}((P,V)(g,h))\}`
+:math:`\forall g,h \in \mathbb{G}: \{Sim(y)\} = \{(u,c,z): c,z \leftarrow^R \mathbb{Z}_p, u=\frac{g^z}{h^c} \} = \{(g^r,c,z) : r,c \leftarrow_R \mathbb{Z}_p, z=r+cx \} = \{View_{V}((P,V)(g,h))\}`
 
 This holds because each tuple :math:`(u,c,z)` is uniformly random
 such that :math:`(u,c,z)`
