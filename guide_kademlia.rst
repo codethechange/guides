@@ -117,7 +117,7 @@ at point :math:`k`. A computer with :math:`id` can then store the addresses
 of computers of the form :math:`successor((id+2^i) % 2^160)` for different powers of
 two up to :math:`n`, where :math:`n` is the number of computers in the ring (Figure 2).
 
-.. figure:: guide_kademlia/fig1.png
+.. figure:: guide_kademlia/fig2.png
     :width: 800px
     :align: center
     :height: 400px
