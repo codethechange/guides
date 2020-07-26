@@ -322,6 +322,8 @@ We can formalize this process as follows:
 Now, let’s analyze the correctness assuming that each computer routing table is correctly 
 populated with at least one computer id per :math:`k`-bucket if such a computer exists within
 that range for that :math:`k`-bucket. Let :math:`id_{global}` be the identifier of the closest computer to the key by XOR.
+We will prove that, for each step in the node lookup, :math:`id_{close}` will be in the same :math:`k`-bucket as :math:`id_{global}`
+from computer :math:`c`'s perspective.
 
 Note that each time a computer :math:`c` returns a closer computer :math:`id_{close}` to the key, this closer computer 
 should be in the same :math:`k`-bucket as :math:`id_{global}`s from the perspective of :math:`c`. Why? Consider :math:`id_{global}`’s 
