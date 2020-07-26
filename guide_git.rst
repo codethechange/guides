@@ -36,9 +36,9 @@ file to a new directory.
 
 .. code-block:: console
 
-    $ git clone https://github.com/codethechange/guide_starters
+    $ git clone https://github.com/codethechange/git_workshop
     $ mkdir git_practice
-    $ mv guide_starters/git/poem.txt git_practice
+    $ mv git_workshop/poem.txt git_practice
     $ cd git_practice
     $ cat poem.txt
     Stopping By Woods On A Snowy Evening
