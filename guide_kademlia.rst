@@ -297,7 +297,7 @@ store the address of computer ‘110.’ Each of these sibling nodes is called a
 Key/Computer Lookups
 ====================
 
-Let’s now consider the farthest away key: 011. How would a **GET(011)** work for computer 110? This key would be stored
+Let’s now consider a far away key: 011. How would a **GET(011)** work for computer 111? This key would be stored
 in computer 010. However, ‘010’ is not listed in our node 111’s address book. The closest computer to 010 that we know 
 of is computer 000. We could then ask computer 000 to tell us whether it has key 011 or if computer 000 knows of any 
 closer computers to 011. Computer 000 should in turn have 010 in its address book, so 000 could return the IP address 
