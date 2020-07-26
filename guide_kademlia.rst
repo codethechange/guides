@@ -347,7 +347,7 @@ we are trying to show that that :math:`id_k=id_{close}`.
     contains an ID with a certain longest common prefix. For example, the :math:`k`-bucket on the far left contains :math:`id_1`
     and represents all ids that differ from :math:`c`’s id on the first bit. Note that because :math:`id_{close}` 
     is in a different bucket as :math:`id_k`, this would imply that :math:`id_{close}` is closer to our goal than 
-    :math:`id_global`, which is a contradiction.
+    :math:`id_{global}`, which is a contradiction.
 
 This invariant over each lookup will guarantee that we will eventually find :math:`id_{global}` by having us increase our 
 common prefix with :math:`id_{global}` in each lookup iteration. Since there are only :math:`log(n)` unique bits in :math:`id_{global}`,
