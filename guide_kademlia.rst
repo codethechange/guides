@@ -161,7 +161,7 @@ each leaf node is a key. Circled leaves are ids that correspond to a participati
 computer in the network. In the example above (Figure 3), three computers are 
 participating in the protocol with ids of 000, 110, and 111 respectively.
 
-For Chord, e partitioned keys into contiguous blocks of a circular array/ring.
+For Chord, we partition keys into contiguous blocks of a circular array/ring.
 How should we partition the leaves of this tree among the circled leaves? 
 A natural segmentation could be to assign a key to the node with the lowest common 
 ancestor. We can then color code the diagram as follows, where leaves with the same 
