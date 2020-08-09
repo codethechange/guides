@@ -84,11 +84,9 @@ html_logo = "./_static/ctcLogo.png"
 # Path to Icon File
 html_favicon = "./_static/favicon.ico"
 
-
-# Load Custom CSS
-def setup(app):
-    app.add_stylesheet('css/custom.css')
-
+html_css_files = [
+    'css/custom.css',
+]
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
