@@ -166,16 +166,16 @@ We could mock the Android Context like this:
 If you forget to mock something, you will get an error saying that the method
 you call is not mocked. To solve this, mock the method as shown above.
 
-Robolectric
------------
+.. Robolectric
+.. -----------
 
-.. todo:: Add notes from Android documentation
+.. .. todo:: Add notes from Android documentation
 
-Instrumented Unit Tests
-***********************
+.. Instrumented Unit Tests
+.. ***********************
 
-.. todo:: Add notes from
-   https://developer.android.com/training/testing/unit-testing/instrumented-unit-tests
+.. .. todo:: Add notes from
+..    https://developer.android.com/training/testing/unit-testing/instrumented-unit-tests
 
 Guidelines for Well-Structured Unit Tests
 *****************************************
@@ -199,15 +199,16 @@ Guidelines for Well-Structured Unit Tests
   tests fail. Given any method name of a test that failed, you should know
   exactly where in the codebase the problem is.
 
-Integration Tests
-=================
+.. Integration Tests
+.. =================
 
-.. todo:: Fill with notes from Android documentation
+.. .. todo:: Fill with notes from Android documentation
 
-End-To-End Tests
-================
+.. End-To-End Tests
+.. ================
 
-.. todo:: Fill with notes from Android documentation
+.. .. todo:: Fill with notes from Android documentation
+
 
 ***********************
 Test-Driven Development

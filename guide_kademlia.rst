@@ -470,7 +470,7 @@ Piecing Together the DHT
 
 With key and computer lookups down, all that remains is to more formally define the network remote procedure calls (RPCs). 
 
-A computer can be asked **FIND_COMP(id)** call and will return :math:`k `of the closest computer ids in its routing table 
+A computer can be asked **FIND_COMP(id)** call and will return :math:`k` of the closest computer ids in its routing table 
 and their IP addresses.
 
 A computer can receive a **FIND_VALUE(key)** call and will return the value if the (key,value) pair is stored
