@@ -85,7 +85,7 @@ html_logo = "./_static/ctcLogo.png"
 html_favicon = "./_static/favicon.ico"
 
 html_js_files = [
-    "js/cusotm.js",
+    "js/custom.js",
 ]
 
 html_css_files = [
