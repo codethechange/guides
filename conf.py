@@ -84,6 +84,10 @@ html_logo = "./_static/ctcLogo.png"
 # Path to Icon File
 html_favicon = "./_static/favicon.ico"
 
+html_js_files = [
+    "js/cusotm.js",
+]
+
 html_css_files = [
     'css/custom.css',
 ]
