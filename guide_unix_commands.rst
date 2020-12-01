@@ -760,9 +760,9 @@ can find it using the ``-a`` flag that shows hidden files:
 .. code-block:: console
 
     $ ls -a
-    .                 .git           .secret.py        prog.py
-    tellTaleHeart.txt ..             .gitignore        .secret.pyc
-    secret_hash.txt   zhang2019.txt
+    .                 .git           .secret           prog.py
+    tellTaleHeart.txt ..             .gitignore        secret_hash.txt
+    zhang2019.txt
 
 Notice ``.secret``, which is where the message is! The ``.`` at the
 beginning causes it to be hidden most of the time.
