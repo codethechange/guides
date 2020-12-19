@@ -296,7 +296,7 @@ of four parts:
     file. They have only read permissions. In my case, the group
     ``staff`` owns the file, as you can see from the output above.
 
-``r--`` 
+``r--``
     This indicates the permissions assigned to all other users. They can
     only read.
 
@@ -317,7 +317,7 @@ we can execute it?
 
     <details>
         <summary>Click to reveal the answer.</summary>
-        
+
         <br>
         We want permissions 744. We only change the first digit to
         affect our own permissionsas the owner. We make it a 7, which in
@@ -498,7 +498,7 @@ in your terminal. You can see all your current variables with
 ``printenv``:
 
 .. code-block:: console
-    
+
     $ printenv
     SHELL=/bin/bash
     PWD=<your current directory>
@@ -518,7 +518,7 @@ will mean true for Python). Set it like this:
     $ export UNIX_INTRO_DISABLE_EPILOG=1
     $ ./prog.py diff tellTaleHeart.txt copy.txt
     False
-    
+
 See, no epilog!
 
 Let's say we want to avoid typing that long variable name each time. We
@@ -603,7 +603,12 @@ and we can remove any duplicates:
 
 .. code-block:: console
 
-    $ cat password.txt | uniq | wc -l
+    $ cat password.txt | sort | uniq | wc -l
+
+.. note::
+
+    The `uniq` command cnly compares adjacent lines, so you have to sort
+    the file first!
 
 Here I used the ``wc`` command, which counts. With ``-l``, it counts the
 number of lines it is provided. Were there any duplicated words?
@@ -653,12 +658,12 @@ password. Since we don't know it yet, quit the program by holding the
 control and ``c`` keys together.
 
 .. note::
-    
+
     Using ctrl-C to kill running programs is very useful when things go
     wrong. Don't forget it!
 
 Now, our first task is to find a file in ``/usr/`` called ``words``. If
-we look in ``/usr//``, it doesn't look like ``words`` is going to be
+we look in ``/usr/``, it doesn't look like ``words`` is going to be
 easily found:
 
 .. code-block:: console
@@ -695,7 +700,7 @@ the words that match this regular expression:
 
     <details>
         <summary>Once you get an answer, click here to check.</summary>
-        
+
         <br>
         You should get 6999.
         <br>
@@ -715,7 +720,7 @@ administrator can see the arguments to any running program.
 
     <details>
         <summary>You should get this secret message.</summary>
-        
+
         <br>
         I really like mspacetime!
         <br>
@@ -749,18 +754,17 @@ the abstract on bioRxiv
 Hidden Files
 ------------
 
-Lastly, you might be wondering where the code to print that secret
-message was hiding. We can find it using the ``-a`` flag that shows
-hidden files:
+Lastly, you might be wondering where the secret message was hiding. We
+can find it using the ``-a`` flag that shows hidden files:
 
 .. code-block:: console
 
     $ ls -a
-    .                 .git           .secret.py        prog.py
-    tellTaleHeart.txt ..             .gitignore        .secret.pyc
-    secret_hash.txt   zhang2019.txt
+    .                 .git           .secret           prog.py
+    tellTaleHeart.txt ..             .gitignore        secret_hash.txt
+    zhang2019.txt
 
-Notice ``.secret.py``, which is where the code is! The ``.`` at the
+Notice ``.secret``, which is where the message is! The ``.`` at the
 beginning causes it to be hidden most of the time.
 
 ==========
