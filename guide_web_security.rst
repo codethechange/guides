@@ -90,6 +90,11 @@ at the end of the article.
 Setting Up PwnMe
 ================
 
+In case you haven't seen it before, "pwn" comes from online gaming
+culture where it means to defeat (i.e. to "own") an opponent. In hacker
+circles it refers to compromising a target. You can find more
+information at `wikitionary <https://en.wiktionary.org/wiki/pwn>`_.
+
 --------
 Download
 --------
@@ -209,14 +214,14 @@ production today. Many companies run bug bounty programs to encourage
 people to responsibly disclose these bugs so they can be fixed. If you
 choose to participate in these programs, **you must closely adhere to
 responsible disclosure policies.** For example, take a look at
-`hackerone's policy <https://www.hackerone.com/disclosure-guidelines>`.
+`hackerone's policy <https://www.hackerone.com/disclosure-guidelines>`_.
 I even have `one for my own website
-<https://u8nwxd.github.io/security/vdp/>`.
+<https://u8nwxd.github.io/security/vdp/>`_.
 
 These policies are important because by default, testing for
 vulnerabilities in websites is usually a federal crime under the
 `Computer Fraud and Abuse Act (CFAA)
-<https://en.wikipedia.org/wiki/Computer_Fraud_and_Abuse_Act>`. Most
+<https://en.wikipedia.org/wiki/Computer_Fraud_and_Abuse_Act>`_. Most
 vulnerability disclosure policies include safe harbor provisions that
 promise not to press charges against you so long as you follow the
 policy.
@@ -236,7 +241,7 @@ Common Web Vulnerabilites and Their Mitigations
 .. DANGER:: **Never** look for vulnerabilities in websites without
    permission. Doing so may be a federal crime and carry both civil and
    criminal charges under the `Computer Fraud and Abuse Act (CFAA)
-   <https://en.wikipedia.org/wiki/Computer_Fraud_and_Abuse_Act>`. It's
+   <https://en.wikipedia.org/wiki/Computer_Fraud_and_Abuse_Act>`_. It's
    frequently a felony!
 
 --------------------------
@@ -352,7 +357,7 @@ You may be tempted to try doing the escaping yourself. Just don't. These
 security operations are difficult to get right, and you're better off
 using code that's already been reviewed by experts.
 
-.. important:: NEVER try and implement security code on your own.
+.. important:: **Never** try and implement security code on your own.
    Security primitives like escaping content, hashing passwords, and
    encrypting data are available as reputable packages or built-in
    functions for nearly all modern programming languages. Use them!
@@ -573,7 +578,7 @@ HTTP Public Key Pinning (HPKP)
 
 A now-discouraged solution to HTTP downgrade attacks was `HTTP Public
 Key Pinning (HPKP)
-<https://developer.mozilla.org/en-US/docs/Web/HTTP/Public_Key_Pinning>`.
+<https://developer.mozilla.org/en-US/docs/Web/HTTP/Public_Key_Pinning>`_.
 This involved setting a header with the server's response that specified
 the public key of one of the certificates verifying the website's
 identity. The browser would then only allow TLS connections with the
@@ -654,7 +659,7 @@ First we'll look up a user ID, but then we'll delete the entire
 ``user`` table!
 
 .. figure:: _static/web_security/exploits_of_a_mom.png
-   :scale: 50%
+   :scale: 100%
    :alt: A comic strip of a parent on the phone with a school. The
        school asks whether the parent's son is really named "Robert');
        DROP TABLE Students;--", and the parent says yes, they call him
@@ -663,8 +668,8 @@ First we'll look up a user ID, but then we'll delete the entire
        inputs.
 
    This is an `XKCD comic titled "Exploits of a Mom"
-   <https://xkcd.com/327/>` available under a `CC-BY-NC 2.5
-   <http://creativecommons.org/licenses/by-nc/2.5/>` license.
+   <https://xkcd.com/327/>`_ available under a `CC-BY-NC 2.5
+   <http://creativecommons.org/licenses/by-nc/2.5/>`_ license.
    Importantly, this means that this comic is not licensed for
    commercial use.
 
@@ -809,7 +814,7 @@ exclusively for their `Advanced Protection Program
 <https://landing.google.com/advancedprotection/>`_, and it found that
 when it gave security keys to its employees in 2017, it `completely
 eliminated employee account takeovers
-<https://krebsonsecurity.com/2018/07/google-security-keys-neutralized-employee-phishing/>`.
+<https://krebsonsecurity.com/2018/07/google-security-keys-neutralized-employee-phishing/>`_.
 
 Password managers also provide a powerful defense against phishing since
 they usually check what website you're on before auto-filling your
@@ -863,7 +868,7 @@ that you may find helpful.
 Licensing and Attribution
 =========================
 
-Copyright (c) 2020 U8N WXD (https://u8nwxd.github.io)
+Copyright (c) 2020 `U8N WXD <https://u8nwxd.github.io>`_
 
 |license|
 
