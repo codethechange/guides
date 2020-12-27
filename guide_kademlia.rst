@@ -19,7 +19,7 @@ This alternative approach to reading, while fun, has some complications.
 For example, how do we determine who owns which book? Most people don't
 bother maintaing a central list of who owns what. That would also be a pain
 to maintain (at least pre-Google Docs). Imagine we didn't care who owned
-which book and just wanted to make sure you system easy to follow and 
+which book and just wanted to make sure your system is easy to follow and 
 resistant against new and volatile friendships. How would we design
 our system?
 
@@ -50,7 +50,14 @@ Distributed Hash Tables
 
 Suppose we want to store data in a way such that we can easily find what we are looking for. One data structure that allows that is our traditional map, where we store elements as <key, value> pairs. Maps support two operations: PUT(key, value), which inserts a new element, and GET(key), which returns the value of the element corresponding to that key. For example, if we wanted to store a bunch of words and definitions on our computer, we save (PUT) each definition (value) under the word (key) it defines. When we want to know what a word means, we get its definition by looking it up (GET) in the map.
 
-While maps are useful, however, they do have one major limitation: they are only stored locally on a single computer. What happens if our elements have super large values, like a file that contains a 2-hour long movie? This is an issue because the more movies we store, the more space we take up in the computer, and it can become difficult to store our entire map on one computer. Alternatively, what if we have an enormous number of elements? One way to solve this problem is to store separate parts of the map on separate computers. We could connect these parts by designating a centralized computer, or coordinator, which would coordinate which keys are stored on which computer. This map would not be very resilient, however, to when the coordinator goes offline.
+While maps are useful, they do have one major limitation: they are only stored locally on a single 
+computer. What happens if our elements have super large values, like a file that contains a 2-hour 
+long movie? This is an issue because the more movies we store, the more space we take up in the 
+computer, and it can become difficult to store our entire map on one computer. Alternatively, 
+what if we have an enormous number of elements? One way to solve this problem is to store separate
+parts of the map on separate computers. We could connect these parts by designating a centralized 
+computer, or coordinator, which would coordinate which keys are stored on which computer. This map 
+would not be very resilient, however, to when the coordinator goes offline.
 
 A Distributed Hash Table (DHT) is a kind of data structure stored on multiple computers that aims to address this issue. We still want our basic operations PUT(key, value) and GET(key), like we had in our map, but we want our data structure to still stand even if some computer leaves our network. In designing our DHT, we want it to be:
 
@@ -316,17 +323,18 @@ We can formalize this process as follows:
 
 1. Find the closest computer in your routing table (via XOR).
 2. While the closest computer you know of does not have the key and has not already responded:
-    a. Ask the closest computer for the key or a closer computer
-    b. If the closest computer responds with a closer computer, update our closest computer.
+    a. Ask the closest computer you know of for the key or a closer computer
+    b. If the closest computer responds with a closer computer, update our closest computer variable.
 
 Now, let’s analyze the correctness assuming that each computer routing table is correctly 
 populated with at least one computer id per :math:`k`-bucket if such a computer exists within
-that range for that :math:`k`-bucket. Let :math:`id_{global}` be the identifier of the closest computer to the key by XOR.
-We will prove that, for each step in the node lookup, :math:`id_{close}` will be in the same :math:`k`-bucket as :math:`id_{global}`
+that range for that :math:`k`-bucket. Let :math:`id_{global}` be the identifier of the closest computer to the key by XOR across all computers.
+
+We will prove that, for each step in the node lookup when a query computer :math:`q` queries a computer :math:`c`, 
+the returned :math:`id_{close}` will be in the same :math:`k`-bucket as :math:`id_{global}`
 from computer :math:`c`'s perspective.
 
-Note that each time a computer :math:`c` returns a closer computer :math:`id_{close}` to the key, this closer computer 
-should be in the same :math:`k`-bucket as :math:`id_{global}`s from the perspective of :math:`c`. Why? Consider :math:`id_{global}`’s 
+Consider :math:`id_{global}`’s 
 :math:`k`-bucket in :math:`c` and let :math:`id_k` be the computer id stored in that :math:`k`-bucket. Let :math:`p` be the binary 
 prefix represented by the internal node for :math:`id_{global}`’s :math:`k`-bucket.
 
@@ -351,7 +359,7 @@ we are trying to show that that :math:`id_k=id_{close}`.
     is in a different bucket as :math:`id_k`, this would imply that :math:`id_{close}` is closer to our goal than 
     :math:`id_{global}`, which is a contradiction.
 
-This invariant over each lookup will guarantee that we will eventually find :math:`id_{global}` by having us increase our 
+This invariant over each lookup will guarantee that we will eventually find :math:`id_{global}` by having us increase the length of our 
 common prefix with :math:`id_{global}` in each lookup iteration. Since there are only :math:`log(n)` unique bits in :math:`id_{global}`,
 our lookup runtime and number of hops should take expected time :math:`O(log(n))`.
 
