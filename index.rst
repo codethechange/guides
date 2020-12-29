@@ -20,6 +20,7 @@ Welcome to Stanford Code the Change's Guides!
    Zero Knowledge Proofs <guide_zk>
    Kademlia DHT <guide_kademlia>
    Web Security <guide_web_security>
+   Securing Open Source Software <guide_securing_oss>
 
 .. toctree::
    :maxdepth: 2
