@@ -172,8 +172,12 @@ To initialize this database, run:
 
 .. code-block::
 
+    $ source environment
     $ flask init-db
     Initialized the database
+
+Notice that we told ``Flask`` about our app using the environment
+variables in ``environment``.
 
 ---------
 Run PwnMe
@@ -183,7 +187,6 @@ Now, you can run the web app:
 
 .. code-block::
 
-    $ source environment
     $ flask run
       * Serving Flask app "pwnme" (lazy loading)
       * Environment: development
@@ -396,7 +399,7 @@ browsing the web in another tab. If you open up a malicious site, say
 evil.example.com, you should be fine since evil.example.com can't access
 the data on your bank web pages. However, what if evil.example.com
 tricked you into submitting a form that sent a POST request to your
-bank. Since you're logged in already, that POST request looks exactly
+bank? Since you're logged in already, that POST request looks exactly
 the same as the one that would come from the form on your bank's
 website. You might have thought you were asking to see 100 cat photos
 from evil.example.com, but the form actually transferred 100 dollars
@@ -496,14 +499,35 @@ response to the user to give the user bad information, or they could
 manipulate a user's request to cause the server to send money to the
 attacker's account instead of the user's.
 
+.. note:: There are actually legitimate uses for MitM! Sometimes
+   organizations want to monitor and filter internet traffic. For
+   example, schools might want to keep kids from accessing illegal
+   content at school, and companies might want to block phishing sites.
+   To do this, they act as a MitM. To do this, they have to configure
+   their users' devices to trust root CAs under the organization's
+   control. Unfortunately, some governments try to surveil their
+   citizens this way. In late July, 2019, researchers `revealed
+   <https://censoredplanet.org/kazakhstan>`_ that Kazakhstan was
+   instructing its citizens to configure their browsers to trust a root
+   CA run by the Kazakhstan government so they could act as a MitM. In
+   response, both `Chrome
+   <https://security.googleblog.com/2019/08/protecting-chrome-users-in-kazakhstan.html>`_
+   and `Firefox
+   <https://blog.mozilla.org/security/2019/08/21/protecting-our-users-in-kazakhstan/>`_
+   blacklisted the CA.
+
 The Vulnerability
 *****************
 
 Actually, both the safe and vulnerable versions of PwnMe are susceptible
 to MitM attacks because we've been working with them over insecure
 connections. Notice how the URLs start with ``http://`` instead of
-``https://``. That means we aren't using TLS, a security protocol that
-encrypts web traffic and authenticates the server to the user.
+``https://``. That means we aren't using TLS (Transport Layer Security),
+a security protocol that encrypts web traffic and authenticates the
+server to the user.
+
+.. note:: You might have heard of the SSL protocol. It's the precursor
+   to TLS, though people often still use "SSL" when talking about TLS.
 
 The Fix
 *******
