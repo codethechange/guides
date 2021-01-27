@@ -21,6 +21,7 @@ Welcome to Stanford Code the Change's Guides!
    Kademlia DHT <guide_kademlia>
    Web Security <guide_web_security>
    Securing Open Source Software <guide_securing_oss>
+   Creating Accessible Websites <guide_accessibility>
 
 .. toctree::
    :maxdepth: 2
