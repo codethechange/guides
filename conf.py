@@ -20,7 +20,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'Stanford Code the Change Guides'
-copyright = '2018 - 2020, Stanford Code the Change unless otherwise noted.'
+copyright = '2018 - 2021, Stanford Code the Change unless otherwise noted.'
 author = 'Stanford Code the Change'
 
 # The short X.Y version
