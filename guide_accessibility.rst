@@ -102,6 +102,32 @@ accommodate people who interact with the web in many different ways.
 However, you should be aware that this is not the only way to think
 about disabilities.
 
+A Small Reflection
+******************
+
+I had been hearing argumenets from both the medical and social model
+perspectives for years before writing this guide, but I didn't have a
+good mental model for those ideas until I took COMM 230A. There I came
+to see the medical and social models as two prominent lenses through
+which one can view disability. I also came to appreciate how societies
+in different places and at different times have accepted one of these
+models more.
+
+.. note:: If you're a Stanford student, I highly recommend COMM 230A:
+   Digital Civil Society. It discusses the very broad intersection
+   between digital technologies and the civil society discourse around
+   social change. I think that it's important for all of us to
+   understand the social implications of our work, and this is
+   especially true of software development work since technology can
+   scale to affect so many people.
+
+Check out `this Mixtape podcast, which includes a discussion on
+disability theories
+<https://techcrunch.com/2020/12/19/mixtape-podcast-artificial-intelligence-and-disability/>`_
+if you're interested in learning more.  It includes strong arguments for
+both lenses, which illustrates how important it is for us all to be able
+to see the world through both.
+
 ----------------
 Universal Design
 ----------------
