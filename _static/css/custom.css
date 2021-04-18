@@ -18,7 +18,27 @@ body {
     font-family: Comfortaa;
 }
 
-h1, h2, h3 {
+h1 {
+    font-family: Comfortaa;
+    font-size: 28px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 2.14;
+    letter-spacing: 0.4px;
+    color: #323232;
+}
+h2 {
+    font-family: Comfortaa;
+    font-size: 24px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 2.14;
+    letter-spacing: 0.4px;
+    color: #323232;
+}
+h3 {
     font-family: Comfortaa;
     font-size: 20px;
     font-weight: bold;

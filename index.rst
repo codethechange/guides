@@ -19,7 +19,10 @@ Welcome to Stanford Code the Change's Guides!
    Introduction to Database and Structured Query Language <sql>
    Zero Knowledge Proofs <guide_zk>
    Kademlia DHT <guide_kademlia>
-   
+   Web Security <guide_web_security>
+   Securing Open Source Software <guide_securing_oss>
+   Creating Accessible Websites <guide_accessibility>
+
 .. toctree::
    :maxdepth: 2
    :caption: Leadership Guides
@@ -30,7 +33,7 @@ Welcome to Stanford Code the Change's Guides!
 License and Attribution
 -----------------------
 
-These guides were created by the amazing members of 
+These guides were created by the amazing members of
 `Stanford Code the Change <http://codethechange.stanford.edu>`_. The authors of
 each guide hold its copyright, and any licensing terms are specified in
 the guides themselves.
