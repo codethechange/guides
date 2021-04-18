@@ -343,13 +343,13 @@ the transcript/view distributions are identical:
 :math:`\forall g,h \in \mathbb{G}: \{Sim(y)\} `
 
 
-:math:`=\{(u,c,z): c,z \leftarrow^R \mathbb{Z}_p, u=\frac{g^z}{h^c} \} `
+which equals :math:`=\{(u,c,z): c,z \leftarrow^R \mathbb{Z}_p, u=\frac{g^z}{h^c} \} `
 
 
-:math:`= \{(g^r,c,z) : r,c \leftarrow_R \mathbb{Z}_p, z=r+cx \} `
+which equals :math:`= \{(g^r,c,z) : r,c \leftarrow_R \mathbb{Z}_p, z=r+cx \} `
 
 
-:math:`= \{View_{V}((P,V)(g,h))\}`
+which equals :math:`= \{View_{V}((P,V)(g,h))\}`
 
 This holds because each tuple :math:`(u,c,z)` is uniformly random
 such that :math:`(u,c,z)`
