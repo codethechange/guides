@@ -41,6 +41,7 @@ release = ''
 extensions = [
     'sphinx.ext.todo',
     'sphinx.ext.githubpages',
+    'IPython.sphinxext.ipython_console_highlighting',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
