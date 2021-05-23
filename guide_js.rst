@@ -22,7 +22,7 @@ What about this?
         const [, num2, ] = l
         console.log(num2)
     }
-    const o = { "asdf": 2} 
+    const o = { "asdf": 2 } 
     const deepCopy = { ...o, b: 2 }
 
 Both do seem to work when added as inline javascript to
@@ -263,8 +263,9 @@ terminal:
     Error: Cannot find module 'express'
 
 Interestingly, we no longer are experiencing the :code:`Uncaught ReferenceError`,
-so we are getting closer. Our remaining issue is that this
-third-party Express framework is a "module" that Node doesn't understand.
+so we are getting closer. In fact, :code:`require` is not supported in
+the ECMAScript specification, but is supported in Node (see the CommonJS Modules section).
+Our remaining issue is that this third-party Express framework is a "module" that Node doesn't understand.
 Thankfully, Node.js comes with an excellent package manager
 that is mysteriously named "npm". You can check out their
 `homepage <https://www.npmjs.com>`_ to see some possibilities regarding
@@ -382,6 +383,78 @@ visit http://localhost:3000:
 
     Example app listening at http://localhost:3000
 
+================
+CommonJS Modules
+================
+
+Although our express server now works thanks to Node and NPM, how do
+does :code:`require` work under the hood? :code:`cd` into the newly created
+:code:`node_modules` folder, which installs the :code:`npm` packages
+specific to our current project as defined in :code:`package.json`. We can
+then inspect the :code:`express` folder which corresponds to the :code:`express` package.
+
+If you inspect :code:`node_modules/express/index.js`, you will see that there is a special
+:code:`module.exports` assignment to another :code:`require` call:
+
+.. code-block:: javascript
+
+    /*!
+    * express
+    * Copyright(c) 2009-2013 TJ Holowaychuk
+    * Copyright(c) 2013 Roman Shtylman
+    * Copyright(c) 2014-2015 Douglas Christopher Wilson
+    * MIT Licensed
+    */
+
+    'use strict';
+
+    module.exports = require('./lib/express');
+
+
+This :code:`require()` has a relative path included, which tells Node to look locally for the
+module file as opposed to installing a third-party NPM dependency.
+If we inspect :code:`node_modules/express/lib/express.js`, we will see a much
+more intricate file with many :code:`module.exports` assignments (but assigned to
+a :code:`exports` convenience variable to not have to prefix with :code:`module` each time).
+
+Back in :code:`node_modules/express/index.js`, let's add an additional export field:
+
+
+.. code-block:: javascript
+
+    /*!
+    * express
+    * Copyright(c) 2009-2013 TJ Holowaychuk
+    * Copyright(c) 2013 Roman Shtylman
+    * Copyright(c) 2014-2015 Douglas Christopher Wilson
+    * MIT Licensed
+    */
+
+    'use strict';
+
+    module.exports = require('./lib/express');
+    module.exports.hi = "hello there";
+
+Did we just edit the Express package? Let's see. Go back to :code:`src/server.js`,
+add a simple :code:`console.log(express.hi)` line, and then run :code:`node server.js`.
+You should see "hello there" in the output in addition to your server!
+
+In the same way that the :code:`express` package used relative imports, you do not have to only
+import and export module information from within :code:`node_modules`. To import your own source
+files in the project, merely add relative paths in the :code:`require()` argument.
+
+.. warning:: Editing an imported NPM package locally should not be done in practice -- 
+    this exercise was for merely instructive purposes. A successive :code:`npm install`
+    could overwrite all your work.
+
+.. warning:: NPM does support installing local packages as NPM packages. Some organizations,
+    have faced security issues where someone registers their project's local package name
+    as a public package on NPM, causing a name collision. Here is a `Medium post <https://medium.com/@alex.birsan/dependency-confusion-4a5d60fec610>`_
+    introducing this supply chain attack vector. GitHub published a `blog post <https://github.blog/2021-02-12-avoiding-npm-substitution-attacks/>`_
+    regarding how to install local packages via NPM safely.
+
+
+
 =============================
 ES6, Babel, and Transpilation
 =============================
@@ -450,7 +523,7 @@ on how to use Babel.
 Typescript
 ==========
 
-Imagine you have the following function to check someone will be
+Imagine you have the following function to check if someone will be
 of legal drinking age in the US exactly 5 years from now given
 their current age:
 
@@ -491,14 +564,65 @@ Javascript does not support static types out of the box, so `TypeScript <https:/
 was introduced to add static types to Javascript. A cool feature of TypeScript
 is that one can have incremental adoption of TypeScript -- one can use different
 settings to enforce static types on only some Javascript files, or one could disable
-checks or :code:`null` or :code:`undefined`
+checks or :code:`null` or :code:`undefined`.
 
 We'll try to use TypeScript to prevent a developer from accidentally passing in a
 string to this willBeOfAge function. For our convenience, we'll make a new
-file `age_checker.ts` and include the following function:
+file :code:`age_checker.ts` and include the following function:
 
 .. code-block:: javascript
 
     const willBeOfAge = (age) => {
-        if (age + 5 >= 21)
+        if (age + 5 >= 21) {
+            return true
+        }
+        return false
     }
+    console.log(willBeOfAge(10))
+    console.log(willBeOfAge("10"))
+
+Here, we're also leveraging arrow functions for a more modern JS feel.
+Run the file via :code:`node age_checker.ts` to see how passing
+in the number as a string will not throw an exception but possibly
+give the wrong answer.
+
+We can selectively add types to whatever variables we would like:
+we could add a type constraint to the argument :code:`age`.
+
+.. code-block:: javascript
+
+    const willBeOfAge = (age : number) : boolean =>  {
+    if (age + 5 >= 21) {
+        return true
+    }
+    return false
+    }
+    console.log(willBeOfAge(10))
+    console.log(willBeOfAge("10"))
+
+Let's now try to compile this with TypeScript and check
+for type correctness. First, install TypeScript globally
+on your machine:
+
+.. code-block:: console
+
+    $ npm install -g typescript
+
+Next, try compiling your new :code:`.ts` file:
+
+.. code-block:: console
+
+    $ tsc age_checker.ts
+    age_checker.ts:8:25 - error TS2345: Argument of type 'string' is not assignable to parameter of type 'number'.
+    8 console.log(willBeOfAge("10"))
+
+    Found 1 error.
+
+Here, TypeScript catches incorrect argument types before we deploy
+our code. To be nice, Typescript will still compile the :code:`.ts` into
+normal Javascript. If you inspect the newly created :code:`age_checker.js`,
+you may notice that TypeScript performs a dual function -- it converted our fancy
+arrow functions into older ES3 function definitions! Thus, TypeScript can already transpile
+most of what Babel also supports in addition to their static type checking.
+
+To learn more about TypeScript, check out their `documentation <https://www.typescriptlang.org/docs/handbook/intro.html>`_.
