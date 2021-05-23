@@ -449,3 +449,56 @@ on how to use Babel.
 ==========
 Typescript
 ==========
+
+Imagine you have the following function to check someone will be
+of legal drinking age in the US exactly 5 years from now given
+their current age:
+
+.. code-block:: javascript
+
+    function willBeOfAge(age) {
+        if (age + 5 >= 21) {
+            return true
+        } else {
+            return false
+        }
+    }
+
+What will happen if age is 10? What about "10"?
+
+.. code-block:: console
+
+    $ node
+    Welcome to Node.js v14.13.1.
+    Type ".help" for more information.
+    > 10 + 5 >= 21
+    false
+    > "10" + 5 >= 21
+    true
+    > "10" + 5
+    '105'
+
+Javascript can support weird operations between different types,
+and this can make it difficult to catch bugs where the wrong
+types are being used. For example, imagine that, in the age example,
+the age value was derived from some string regex. A developer could have
+forgotten to cast the string into a number (there are no int types in JS).
+In fact, many bugs can be viewed as type bugs -- incorrect function signatures,
+handling null values, and performing comparisons with the wrong
+implicit types all could be prevened with TypeScript.
+
+Javascript does not support static types out of the box, so `TypeScript <https://www.typescriptlang.org>`_
+was introduced to add static types to Javascript. A cool feature of TypeScript
+is that one can have incremental adoption of TypeScript -- one can use different
+settings to enforce static types on only some Javascript files, or one could disable
+checks or :code:`null` or :code:`undefined`
+
+We'll try to use TypeScript to prevent a developer from accidentally passing in a
+string to this willBeOfAge function. For our convenience, we'll make a new
+file `age_checker.ts` and include the following function:
+
+.. code-block:: javascript
+
+    const willBeOfAge = (age) => {
+        if (age + 5 >= 21)
+    }

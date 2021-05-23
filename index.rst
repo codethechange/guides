@@ -22,6 +22,7 @@ Welcome to Stanford Code the Change's Guides!
    Web Security <guide_web_security>
    Securing Open Source Software <guide_securing_oss>
    Creating Accessible Websites <guide_accessibility>
+   Layers of Modern Javascript <guide_js>
 
 .. toctree::
    :maxdepth: 2
