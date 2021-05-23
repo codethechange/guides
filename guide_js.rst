@@ -223,7 +223,7 @@ This language caught on, and other browsers started to support Javascript.
 Now, Javascript
 is the single most popular programming language according to the latest
 `Stack Overflow Developer Survey <https://insights.stackoverflow.com/survey/2020#most-popular-technologies>`_.
-As a result, `ecma <https://en.wikipedia.org/wiki/Ecma_International>`_ maintains
+As a result, `Ecma International <https://en.wikipedia.org/wiki/Ecma_International>`_ maintains
 a set of public standards around Javascript, which the browsers use
 to continuously update their own JS interepreters. These standards
 get frequuently updated and often add new features that the
@@ -246,16 +246,17 @@ allows you to write scripts and servers in Javascript.
 
 Once you install node, you can :code:`node` to open up a Node interpreter.
 Here, you can run Javascript that doesn't involve browser interactions.
-For example, :code:`alert('hi')` no longer makes sense here. :math:`console.log('hi')`,
+For example, :code:`alert('hi')` no longer makes sense here. :code:`console.log('hi')`,
 however, does still work. Since Express is a framework to help run a 
 web server, and web servers run as processes, Express is meant to be 
-run in Node. We can thus try running the Express starter code given above
-in a file :code:`server.js` and then running :code:`node server.js` in the
+run in Node. Let's make an empty project directory. From there, make a :code:`src` directory.
+We can thus try putting the Express starter code given above
+in a file :code:`src/server.js` and then running :code:`node src/server.js` in the
 terminal:
 
 .. code-block:: console
 
-    $ node server.js
+    $ node src/server.js
     internal/modules/cjs/loader.js:883
         throw err;
         ^
@@ -297,7 +298,7 @@ don't plan on publishing this package publicly.
     package name: (guides)
     version: (1.0.0)
     description:
-    entry point: (server.js)
+    entry point: (server.js) src/server.js
     test command:
     git repository: (https://github.com/codethechange/guides)
     keywords:
@@ -309,10 +310,10 @@ don't plan on publishing this package publicly.
     "name": "guides",
     "version": "1.0.0",
     "description": "=================================== Guides for Stanford Code the Change ===================================",
-    "main": "server.js",
+    "main": "src/server.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "node server.js"
+        "start": "node src/server.js"
     },
     "repository": {
         "type": "git",
@@ -338,7 +339,7 @@ field of this JSON file even automatically created some default commands for us:
     $ npm run start
 
     > guides@1.0.0 start
-    > node server.js
+    > node src/server.js
 
     internal/modules/cjs/loader.js:883
         throw err;
@@ -363,7 +364,7 @@ packages via :code:`npm install express`.
     $ npm install express
 
     > guides@1.0.0 start
-    > node server.js
+    > node src/server.js
 
     internal/modules/cjs/loader.js:883
         throw err;
@@ -379,8 +380,7 @@ visit http://localhost:3000:
     $ npm run start
 
     > guides@1.0.0 start
-    > node server.js
-
+    > node src/server.js
     Example app listening at http://localhost:3000
 
 ================
@@ -475,22 +475,14 @@ Thankfully, these language additions do not change
 the expressivity of the language and can be viewed as
 syntactic sugar. `Babel <https://babeljs.io/docs/en/usage>`_ is
 a JS framework that helps convert your modern Javascript
-code into Javascript that is compliannt with the old
-ECMAscript standards so that it can be run out of the box.
+code into Javascript that is compliant with the old
+ECMAScript standards so that it can be run out of the box. We will will see this in action on our modern :code:`server.js`
+file that uses arrow functions.
 
-We will will see this in action on our modern :code:`server.js`
-file that uses arrow functions. First, to be clear about what we are
-compiling, move :code:`server.js` to its own :code:`src` directory:
-
-.. code-block:: console
-
-    $ mkdir src
-    $ mv server.js src
-
-In fact, Babel can perform arbitrary transpilation, which is why
-React uses Babel to transform their JSX into pure, native javascript.
-Thus, we will want to explicitly tell Babel to transpile this modern
-javascript a pre-ECMA2015 world. 
+.. note:: In fact, Babel can perform arbitrary transpilation, which is why
+    React uses Babel to transform their JSX into pure, native javascript.
+    We will want to explicitly tell Babel to transpile this modern
+    javascript a pre-ECMA2015 world. 
 
 Next, we will install babel, babel's cli, and the default presets,
 which include replacing arrow functions. Then, we will use Babel to
@@ -518,6 +510,118 @@ transpile our server.js file:
 Et Voila! Our arrow functions have been replaced with traditional functions.
 Be sure to continue reading `here <https://babeljs.io/docs/en/usage>`_ for more information
 on how to use Babel.
+
+-------------------------------
+ES6 + CommonJS: Import & Export
+-------------------------------
+When ES6 came about, Ecma International decided to put
+module imports and exports in to the JS standard. Crazily enough,
+the browsers support ES6 modules as well, although I have never
+tried using ES6 modules directly via inline JS. Node, by
+extension, also supports managing packages this way as well.
+One particularly cool aspect is that Node makes ES6 module syntax
+interoperable with other modules that use CommonJS syntax.
+
+Try editing our server.js file to use ES6 import syntax:
+
+.. code-block:: javascript
+
+    import express from 'express'
+
+    console.log(express.hi)
+    var app = express();
+    var port = 3000;
+    app.get('/', function (req, res) {
+        res.send('Hello World!');
+    });
+    app.listen(port, function () {
+        console.log("Example app listening at http://localhost:" + port);
+    });
+
+If we try running this, we get the following error message:
+
+.. code-block:: console
+
+    $ node server.js
+    (node:82672) Warning: To load an ES module, set "type": "module" in the package.json or use the .mjs extension.
+    (Use `node --trace-warnings ...` to show where the warning was created)
+    ./src/server.js:1
+    import express from 'express'
+    ^^^^^^
+
+Interestingly, Node *doesn't* support interchanging CommonJS and ES6 syntax
+within the same module. Thankfully, this is an easy fix. Add the :code:`"type": "module"`
+("type" defaults to "commonjs" when the field isn't specified), which tells Node.js
+to interpret this module in ES6. Even though express was written with CommonJS
+modules, we can still import Express with ES6:
+
+.. code-block:: console
+
+    $ node server.js
+    hello there
+    Example app listening at http://localhost:3000
+
+.. note:: We ran ES6 code via a normal :code:`node` command. What gives?
+    The reality is that your new Node installation certainly supports ES6
+    out of the box without transpilation in "experimental mode", and most browsers already support ES6
+    anyways. As time goes on, there will be less and less of a need to transpile
+    to pre-2015 ECMAScript-compliant JS. Still, the underlying principles behind
+    transpilation will likely persist -- there will always be a gap between the newest
+    versions of Javascript and the browser versions of billions of users all trying
+    to run your javascrip on their local machines. You don't need to transpile, however,
+    if your JS is being solely on a Node.js process whose version you control.
+
+Indeed, our tweaked Express package in node_modules is still unchanged ("hello there" is still being printed)
+and thus must still be written via CommonJS module syntax.
+
+ES6 import/export statements also leverage the object destructuring syntax
+added in the standard. Here is another example. Add :code:`other_file.js` to your
+:code:`src` directory:
+
+.. code-block:: javascript
+
+    const hi  = 'hi from other file'
+
+    const say_bye = () => { console.log("good bye from other file") }
+
+    export {hi, say_bye}
+
+Then, update our increasingly messy :code:`server.js` to use this functionality
+from :code:`other_file`:
+
+.. code-block:: javascript
+
+    import express from 'express'
+    import { hi, say_bye } from './other_file.js'
+
+    console.log(hi)
+    say_bye()
+    console.log(express.hi)
+    var app = express();
+    var port = 3000;
+    app.get('/', function (req, res) {
+        res.send('Hello World!');
+    });
+    app.listen(port, function () {
+        console.log("Example app listening at http://localhost:" + port);
+    });
+
+Node.js, despite having experimental support with importing modules via ES6 syntax,
+doesn't work too well with exports out of the box. Thankfully, Babel will convert our ES6
+syntax into CommonJS syntax via transpilation. Remove the :code:`"type": "module"`
+line from our :code:`package.json` to tell :code:`node` that we're reverting into CommonJS
+syntax. Let's now compile our ES6 JS into CommonJS syntax via the same Babel command we used
+before:
+
+.. code-block:: console
+
+    $ ./node_modules/.bin/babel src --out-dir lib --presets=@babel/env
+    $ node lib/server.js
+    hi from other file
+    good bye from other file
+    hello there
+    Example app listening at http://localhost:3000
+ 
 
 ==========
 Typescript
