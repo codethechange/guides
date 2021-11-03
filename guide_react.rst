@@ -348,13 +348,13 @@ a strikethrough when ``isCompleted`` is ``true``:
         const { todo, index, completeTodo } = props
         return (
             <div
-            className="todo"
-            style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}
+                className="todo"
+                style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}
             >
-            {todo.text}
-            <div>
-                <button onClick={() => completeTodo(index)}>Complete</button>
-            </div>
+                {todo.text}
+                <div>
+                    <button onClick={() => completeTodo(index)}>Complete</button>
+                </div>
             </div>
         );
     }
@@ -366,17 +366,17 @@ a strikethrough when ``isCompleted`` is ``true``:
 
         return (
             <div className="app">
-            <div className="todo-list">
-                {todos.map((todo, index) => (
-                <Todo
-                    key={index}
-                    index={index}
-                    todo={todo}
-                    completeTodo={completeTodo}
-                />
-                ))}
-                <TodoForm addTodo={addTodo} />
-            </div>
+                <div className="todo-list">
+                    {todos.map((todo, index) => (
+                    <Todo
+                        key={index}
+                        index={index}
+                        todo={todo}
+                        completeTodo={completeTodo}
+                    />
+                    ))}
+                    <TodoForm addTodo={addTodo} />
+                </div>
             </div>
         );
     }
@@ -410,14 +410,14 @@ button that calls it when clicked:
         const { todo, index, completeTodo, removeTodo } = props
         return (
             <div
-            className="todo"
-            style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}
+                className="todo"
+                style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}
             >
-            {todo.text}
-            <div>
-                <button onClick={() => completeTodo(index)}>Complete</button>
-                <button onClick={() => removeTodo(index)}>x</button>
-            </div>
+                {todo.text}
+                <div>
+                    <button onClick={() => completeTodo(index)}>Complete</button>
+                    <button onClick={() => removeTodo(index)}>x</button>
+                </div>
             </div>
         );
     }
@@ -429,18 +429,18 @@ button that calls it when clicked:
 
         return (
             <div className="app">
-            <div className="todo-list">
-                {todos.map((todo, index) => (
-                <Todo
-                    key={index}
-                    index={index}
-                    todo={todo}
-                    completeTodo={completeTodo}
-                    removeTodo={removeTodo}
-                />
-                ))}
-                <TodoForm addTodo={addTodo} />
-            </div>
+                <div className="todo-list">
+                    {todos.map((todo, index) => (
+                    <Todo
+                        key={index}
+                        index={index}
+                        todo={todo}
+                        completeTodo={completeTodo}
+                        removeTodo={removeTodo}
+                    />
+                    ))}
+                    <TodoForm addTodo={addTodo} />
+                </div>
             </div>
         );
     }
@@ -465,14 +465,14 @@ you should have an implementation that is similar to the code here:
         const { todo, index, completeTodo, removeTodo } = props
         return (
             <div
-            className="todo"
-            style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}
+                className="todo"
+                style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}
             >
-            {todo.text}
-            <div>
-                <button onClick={() => completeTodo(index)}>Complete</button>
-                <button onClick={() => removeTodo(index)}>x</button>
-            </div>
+                {todo.text}
+                <div>
+                    <button onClick={() => completeTodo(index)}>Complete</button>
+                    <button onClick={() => removeTodo(index)}>x</button>
+                </div>
             </div>
         );
     }
@@ -490,12 +490,12 @@ you should have an implementation that is similar to the code here:
 
         return (
             <form onSubmit={handleSubmit}>
-            <input
-                type="text"
-                className="input"
-                value={value}
-                onChange={(e) => setValue(e.target.value)}
-            />
+                <input
+                    type="text"
+                    className="input"
+                    value={value}
+                    onChange={(e) => setValue(e.target.value)}
+                />
             </form>
         );
     }
@@ -522,18 +522,18 @@ you should have an implementation that is similar to the code here:
 
         return (
             <div className="app">
-            <div className="todo-list">
-                {todos.map((todo, index) => (
-                <Todo
-                    key={index}
-                    index={index}
-                    todo={todo}
-                    completeTodo={completeTodo}
-                    removeTodo={removeTodo}
-                />
-                ))}
-                <TodoForm addTodo={addTodo} />
-            </div>
+                <div className="todo-list">
+                    {todos.map((todo, index) => (
+                    <Todo
+                        key={index}
+                        index={index}
+                        todo={todo}
+                        completeTodo={completeTodo}
+                        removeTodo={removeTodo}
+                    />
+                    ))}
+                    <TodoForm addTodo={addTodo} />
+                </div>
             </div>
         );
     }
