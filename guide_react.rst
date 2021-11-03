@@ -133,8 +133,9 @@ functions, one can create large-scale systems with ease.
     Unless otherwise specified, the components below can be implemented in 
     ``App.js``.
 
+-----------------------------------------------
 How to Build a To-Do List and Read a To-Do Item
-***********************************************
+-----------------------------------------------
 
 First, let’s build the read functionality of the app! By the end of this step, 
 we should have a root ``App`` component that looks like this:
