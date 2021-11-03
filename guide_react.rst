@@ -196,7 +196,7 @@ will return the text for its corresponding to-do item:
 
 .. code-block:: jsx
 
-    function Todo(props) {
+    const Todo = (props) => {
         const { index, todo } = props;
         return (
             <div className="todo">
@@ -237,7 +237,7 @@ create a form component that takes in a user’s input and returns it from the
 
 .. code-block:: jsx
 
-    function App() {
+    const App = () => {
         const [todos, setTodos] = React.useState([]);
 
         const addTodo = (text) => {
