@@ -60,9 +60,9 @@ are mentioned in this write-up also apply to Angular and Vue.
 The to-do app below will mostly follow the steps outlined in this DigitalOcean 
 tutorial: https://www.digitalocean.com/community/tutorials/how-to-build-a-react-to-do-app-with-react-hooks.
 
------
+=====
 Setup
------
+=====
 
 First, install Node.js for your OS at nodejs.org.
 
@@ -118,9 +118,9 @@ Next, for the purposes of styling (which you can edit later), add the following 
         border-radius: 2px;
     }
 
-----------
+==========
 To-Do List
-----------
+==========
 
 For the remainder of the workshop, we will build a basic to-do list app using 
 functional React components with hooks. To show how we can use ``state`` and 
@@ -232,8 +232,9 @@ component by using the following:
 At the end of ``Todo``, we just return a ``<div>`` element containing a 
 string of text from the to-do item.
 
+--------------------------
 How to Create a To-Do Item
-**************************
+--------------------------
 
 While the code above works for hard coded to-do items, we can improve on this 
 functionality by creating new to-do items with user input. First, we should 
@@ -308,8 +309,9 @@ Similarly, the ``input`` element has an ``onChange`` attribute that accepts
 a function with a parameter ``e``—an event that is fired when a user presses
 a key, which we can use to change the input string in the text box.
 
+--------------------------
 How to Update a To-Do Item
-**************************
+--------------------------
 
 For the updating part of this workshop, we will add functionality to 
 the list that allows us to visually complete individual to-do items. 
@@ -385,8 +387,9 @@ Notice that we added a ``<button>`` element next to the text of each item
 that calls ``completeTodo`` when clicked. When you click on the 'Complete' 
 button, you should now see the corresponding task being crossed out!
 
+--------------------------
 How to Delete a To-Do Item
-**************************
+--------------------------
 
 Lastly, we will add delete functionality to the to-do list, which will 
 be very similar to marking an item as complete. First, let’s create a 
@@ -448,9 +451,9 @@ button that calls it when clicked:
 When you click the 'x' button, you should see the selected item disappear 
 from the to-do list.
 
-----------
+==========
 Conclusion
-----------
+==========
 
 Congratulations on building your first complete React application with read, 
 write, update, and delete functionality! If you followed every step correctly, 
