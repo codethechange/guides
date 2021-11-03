@@ -23,6 +23,7 @@ Welcome to Stanford Code the Change's Guides!
    Securing Open Source Software <guide_securing_oss>
    Creating Accessible Websites <guide_accessibility>
    Layers of Modern Javascript <guide_js>
+   React with Hooks <guide_react>
 
 .. toctree::
    :maxdepth: 2
