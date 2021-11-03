@@ -128,6 +128,11 @@ functional React components with hooks. To show how we can use ``state`` and
 read/write/update/delete functionality to this app. From these four basic 
 functions, one can create large-scale systems with ease.
 
+.. note::
+
+    Unless otherwise specified, the components below can be implemented in 
+    ``App.js``.
+
 How to Build a To-Do List and Read a To-Do Item
 ***********************************************
 
@@ -145,15 +150,15 @@ we should have a root ``App`` component that looks like this:
 
         return (
             <div className="app">
-            <div className="todo-list">
-                {todos.map((todo, index) => (
-                <Todo
-                    key={index}
-                    index={index}
-                    todo={todo}
-                />
-                ))}
-            </div>
+                <div className="todo-list">
+                    {todos.map((todo, index) => (
+                    <Todo
+                        key={index}
+                        index={index}
+                        todo={todo}
+                    />
+                    ))}
+                </div>
             </div>
         );
     }
@@ -191,8 +196,8 @@ Now, let’s take a look at #2. For any React component, we will always return
 one HTML element. In this case, we are returning a ``<div>`` container that holds 
 an array of ``<Todo>`` components (``map`` is the method that creates this array). 
 Since ``<Todo>`` isn’t a native HTML element, we have to create this element 
-ourselves by introducing another functional component called ``Todo``, which 
-will return the text for its corresponding to-do item:
+ourselves by introducing another functional component above ``App`` called ``Todo``, 
+which will return the text for its corresponding to-do item:
 
 .. code-block:: jsx
 
@@ -247,16 +252,16 @@ create a form component that takes in a user’s input and returns it from the
 
         return (
             <div className="app">
-            <div className="todo-list">
-                {todos.map((todo, index) => (
-                <Todo
-                    key={index}
-                    index={index}
-                    todo={todo}
-                />
-                ))}
-                <TodoForm addTodo={addTodo} />
-            </div>
+                <div className="todo-list">
+                    {todos.map((todo, index) => (
+                    <Todo
+                        key={index}
+                        index={index}
+                        todo={todo}
+                    />
+                    ))}
+                    <TodoForm addTodo={addTodo} />
+                </div>
             </div>
         );
     }
@@ -280,19 +285,28 @@ function that will add a new to-do item to the `todos` array. We can define
 
         return (
             <form onSubmit={handleSubmit}>
-            <input
-                type="text"
-                className="input"
-                value={value}
-                onChange={(e) => setValue(e.target.value)}
-            />
+                <input
+                    type="text"
+                    className="input"
+                    value={value}
+                    onChange={(e) => setValue(e.target.value)}
+                />
             </form>
         );
     }
 
+In this component, the state variable ``value`` is a string that tracks
+the text added to the form via user input.
+
 The ``handleSubmit`` function might look a bit tricky, but it’s just a 
 function that changes some of the contents of the app when we type 
-something into the form and hit the ``ENTER`` key.
+something into the form and hit the ``ENTER`` key. Since this function is
+passed into the ``onSubmit`` attribute, we should accept a user event ``e``
+as a parameter. 
+
+Similarly, the ``input`` element has an ``onChange`` attribute that accepts 
+a function with a parameter ``e``—an event that is fired when a user presses
+a key, which we can use to change the input string in the text box.
 
 How to Update a To-Do Item
 **************************
