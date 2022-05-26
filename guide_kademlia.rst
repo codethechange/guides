@@ -420,9 +420,9 @@ computer :math:`j` based on the correctness of the lookup algorithm and the fact
 sufficiently populated. In addition, all computers that are being queried by :math:`j` will become aware of :math:`j` in the process 
 and thus will have the opportunity to insert :math:`j` into their own :math:`k`-buckets if their corresponding bucket is not already full.
 
-Finally, whenever a computer *current* learns of a new computer :math:`c`, current can also check if :math:`c` is closer to any keys 
-currently stored on current are actually closer to :math:`c`. If that is the case, it can issue PUT requests to :math:`c`for those keys. 
-fThis will allow keys to be automatically moved to new but closer computers.
+Finally, whenever a computer *current* learns of a new computer :math:`c`, current can also check if any of the keys it stores are actually 
+closer to :math:`c`. If that is the case, it can issue PUT requests to :math:`c` for those keys. This will allow keys to be automatically 
+moved to new but closer computers.
 
 =========================================
 Walkthrough of a Kademlia Network Genesis
